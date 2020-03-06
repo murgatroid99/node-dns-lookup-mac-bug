@@ -1,0 +1,19 @@
+name: Mac
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up node 12 using nvm
+      uses: dcodeIO/setup-node-nvm@v2.0.0
+      with:
+        node-version: 12
+    - name: Run tests
+      run: |
+        node ./test-resolver.js
