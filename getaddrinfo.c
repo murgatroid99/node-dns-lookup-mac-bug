@@ -6,10 +6,6 @@
 #include <string.h>
 #include <sys/socket.h>
 
-#ifndef NI_MAXHOST
-#define NI_MAXHOST 1025
-#endif
-
 int main(int argc, char **argv) {
   struct addrinfo *result;
   struct addrinfo *res;
