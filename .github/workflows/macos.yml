@@ -17,3 +17,10 @@ jobs:
     - name: Run tests
       run: |
         node ./test-resolver.js
+    - name: Compile C-based resolver
+      run: |
+        gcc -o getaddrinfo -O2 getaddrinfo.c
+    - name: Run C-based resolver
+      run: |
+        ./getaddrinfo loopback6.unittest.grpc.io
+        ./getaddrinfo loopback46.unittest.grpc.io
